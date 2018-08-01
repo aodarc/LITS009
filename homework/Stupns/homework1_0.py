@@ -2,7 +2,7 @@
 # 1 method
 
 
-# a = open(u'/home/stupns/Desktop/projects/Lits/question', 'r')
+# a = open(u'/home/stupns/Desktop/projects/Lits/LITS009/homework/Stupns/question.txt', 'r')
 #
 # while True:
 #     question = a.readline().strip()
@@ -38,7 +38,7 @@
 #             language = input('Пайтон чи рубі?')
 #             if language == 'пайтон':
 #                 while framework != 'пайшарм' or 'селеніум':
-#                     framework = input('Пайшарм чи селуніум?')
+#                     framework = input('Пайшарм чи селеніум?')
 #                     if framework == 'пайшарм':
 #                         print('just do it')
 #                         break
