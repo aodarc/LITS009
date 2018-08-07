@@ -1,14 +1,13 @@
 lst = [1, [2, 3], 4, [[6, 7]]]
 
-lst2=[]
+def list_merge(lst):
+  lst2 = []
+  for a in lst:
+    if isinstance(a, list):
+        lst2.extend(list_merge(a))
+    else:
+        lst2.append(a)
+  return lst2
 
-for a in lst:
-  if isinstance(a, list):
-    for b in a:
-      if isinstance(b, list):
-        for c in b:
-          lst2.append(c)
-      else:
-        lst2.append(b)
-  else:
-    lst2.append(a)
+lst2 = list_merge(lst)
+print(lst2)
