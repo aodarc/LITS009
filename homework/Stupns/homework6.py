@@ -12,7 +12,7 @@ def download(url):
     if not url.rfind('.py'):
         a = print('File extension with .py not found')
         return a
-    filename = url.split('/')[-1]
+    filename = url.split('/')[-1][2:]
     with open(filename, 'wb') as my_file:
         my_file.write(new.content)
     print("File download.")
