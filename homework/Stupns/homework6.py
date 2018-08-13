@@ -19,6 +19,8 @@ def download(url):
     # if os.path.exists(filename):
     #     print(filename)
 
+from LITS009.homework.Stupns import recurtion_example
 
-if __name__ == '__main__':
-    download(url)
+a = recurtion_example.l
+recurtion_example.make_flat(a)
+
