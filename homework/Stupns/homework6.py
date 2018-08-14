@@ -4,6 +4,7 @@ import os.path
 
 url = 'https://raw.githubusercontent.com/aodarc/LITS009/master/lections/4.recurtion_example.py'
 
+
 def download(url):
     new = requests.get(url, allow_redirects=True)
     if new.status_code == 404:
@@ -15,12 +16,13 @@ def download(url):
     filename = url.split('/')[-1][2:]
     with open(filename, 'wb') as my_file:
         my_file.write(new.content)
-    print("File download.")
-    # if os.path.exists(filename):
-    #     print(filename)
+    if os.path.exists(filename):
+        realpath = filename.replace('.py', '')
+        globals()[realpath] = __import__(realpath)
+        a = recurtion_example.l
+        recurtion_example.make_flat(a)
 
-from LITS009.homework.Stupns import recurtion_example
+if __name__ == '__main__':
+    download(url)
 
-a = recurtion_example.l
-recurtion_example.make_flat(a)
 
