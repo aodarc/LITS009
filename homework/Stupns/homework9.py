@@ -16,7 +16,7 @@ print('\n')
 end = t.time()
 func_time_one = (end - start)
 
-# start second simple numb
+# start second simple num
 
 start = t.time()
 
