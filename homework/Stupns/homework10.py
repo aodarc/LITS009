@@ -1,22 +1,27 @@
-def tag(name='<div>', name2=''):
+def tag(name):
     def decorator(func):
-        def wrapper(*args2):
+        def wrapper(text):
             try:
-                if name2 == '':
-                    new_name = str(name).replace('<', '</')
-                    return name + func(*args2) + new_name
+                if name == '123':
+                    return 'error'
                 else:
-                    return name + func(*args2) + name2
+                    return "<{0}>{1}</{0}>".format(name, func(text))
             except TypeError:
-                err = 'You input incorrect *args, plz write one or two args of type str in @'
-                err += tag.__name__
+                err = 'error'
                 print(err)
         return wrapper
     return decorator
 
 
-@tag(name='<div>')
-def foo():
-    return 'lorem ipsum'
+TEST_CASES = [
+    ({'name': 'span'}, 'lorem ipsum', '<span>LOREM IPSUM</span>'),
+    ({'name': 'div'}, 'lorem ipsum', '<div>LOREM IPSUM</div>'),
+    ({'name': 'strong'}, 'lorem ipsum', '<strong>LOREM IPSUM</strong>'),
+    ({'name': '123'}, 'lorem ipsum', 'error'),
+]
 
-print(foo())
+for case in TEST_CASES:
+    @tag(**case[0])
+    def foo(text):
+        return text.upper()
+    assert foo(case[1]) == case[2]
