@@ -1,3 +1,5 @@
+# homework10 decorator with testing
+
 def tag(name):
     def decorator(func):
         def wrapper(text):
@@ -9,7 +11,9 @@ def tag(name):
             except TypeError:
                 err = 'error'
                 print(err)
+
         return wrapper
+
     return decorator
 
 
@@ -24,4 +28,6 @@ for case in TEST_CASES:
     @tag(**case[0])
     def foo(text):
         return text.upper()
+
+
     assert foo(case[1]) == case[2]
