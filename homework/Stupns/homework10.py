@@ -1,5 +1,3 @@
-# homework10 decorator with testing
-
 def tag(name):
     def decorator(func):
         def wrapper(text):
